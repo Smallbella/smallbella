@@ -43,3 +43,45 @@ body {
     height: 100vh;                /* full screen height */
     text-align: center;           /* center text inside */
 }
+
+h1 {
+    font-size: 3rem;
+
+    /* rainbow gradient inside text */
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        green,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+    background-size: 300%;
+
+    /* show gradient only on text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* animation */
+    animation: rainbowMove 5s linear infinite;
+
+    /* ✨ neon glow */
+    text-shadow:
+        0 0 10px rgba(255, 0, 255, 0.7),
+        0 0 20px rgba(0, 255, 255, 0.7),
+        0 0 40px rgba(255, 255, 0, 0.7);
+}
+
+@keyframes rainbowMove {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 200%;
+    }
+}
+
+
