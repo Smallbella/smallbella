@@ -3,6 +3,13 @@ body {
     background: #0a0a0a;
     position: relative;
     overflow: hidden;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
 }
 
 /* glowing layer */
@@ -29,24 +36,9 @@ body::before {
     }
 }
 
-body {
-    margin: 0;
-    background: #0a0a0a;
-    position: relative;
-    overflow: hidden;
-
-    color: white;                 /* text color */
-    display: flex;                /* enable flexbox */
-    justify-content: center;      /* horizontal center */
-    align-items: center;          /* vertical center */
-    height: 100vh;                /* full screen height */
-    text-align: center;           /* center text inside */
-}
-
 h1 {
-    font-size: 3rem;
+    font-size: 4rem;
 
-    /* rainbow gradient inside text */
     background: linear-gradient(
         90deg,
         red,
@@ -60,14 +52,12 @@ h1 {
     );
     background-size: 300%;
 
-    /* show gradient only on text */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px black;
 
-    /* animation */
     animation: rainbowMove 5s linear infinite;
 
-    /* ✨ neon glow */
     text-shadow:
         0 0 10px rgba(255, 0, 255, 0.7),
         0 0 20px rgba(0, 255, 255, 0.7),
@@ -82,5 +72,3 @@ h1 {
         background-position: 200%;
     }
 }
-
-
