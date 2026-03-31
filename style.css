@@ -28,3 +28,18 @@ body::before {
         transform: scale(1.2);
     }
 }
+
+body {
+    margin: 0;
+    background: #0a0a0a;
+    position: relative;
+    overflow: hidden;
+
+    /* 👇 NEW PART */
+    color: white;                 /* text color */
+    display: flex;                /* enable flexbox */
+    justify-content: center;      /* horizontal center */
+    align-items: center;          /* vertical center */
+    height: 100vh;                /* full screen height */
+    text-align: center;           /* center text inside */
+}
