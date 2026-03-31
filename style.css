@@ -35,7 +35,6 @@ body {
     position: relative;
     overflow: hidden;
 
-    /* 👇 NEW PART */
     color: white;                 /* text color */
     display: flex;                /* enable flexbox */
     justify-content: center;      /* horizontal center */
