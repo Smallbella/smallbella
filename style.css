@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    background: #0a0a0a;
+    position: relative;
+    overflow: hidden;
+}
+
+/* glowing layer */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background: radial-gradient(circle at center, rgba(255, 105, 180, 0.5), transparent 70%);
+    filter: blur(120px);
+
+    animation: pinkGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pinkGlow {
+    0% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.9;
+        transform: scale(1.2);
+    }
+}
