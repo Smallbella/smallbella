@@ -1,74 +1,22 @@
-body {
-    margin: 0;
-    background: #0a0a0a;
-    position: relative;
-    overflow: hidden;
+/* Shared styles for the COSC 219 homepage */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #243247; background: #f5f7fb; }
+header { background: #203b60; color: white; padding: 22px max(24px, calc((100% - 960px) / 2)); }
+h1 { margin: 0 0 18px; font-size: 28px; }
+nav { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.home-link, .dropdown summary { color: white; font-size: 16px; text-decoration: none; padding: 10px 14px; border-radius: 6px; }
+.home-link:hover, .dropdown summary:hover, .dropdown[open] summary { background: #36577e; }
+.dropdown { position: relative; }
+.dropdown summary { cursor: pointer; list-style: none; }
+.dropdown summary::-webkit-details-marker { display: none; }
+.dropdown summary span { margin-left: 8px; }
+.dropdown ul { position: absolute; top: calc(100% + 6px); left: 0; z-index: 10; margin: 0; padding: 12px; width: min(850px, calc(100vw - 48px)); list-style: none; background: white; border: 1px solid #d8e0eb; border-radius: 8px; box-shadow: 0 10px 24px rgba(0,0,0,.15); display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; }
+.dropdown li { flex: 1 1 180px; }
+.dropdown a { display: flex; align-items: center; justify-content: center; height: 100%; padding: 12px 14px; color: #203b60; text-decoration: none; text-align: center; border-radius: 5px; background: #f5f7fb; }
+.dropdown a:hover, .dropdown a:focus-visible { background: #eaf1fb; }
+main { max-width: 960px; margin: 60px auto; padding: 0 24px; }
+h2 { font-size: 26px; }
+p { line-height: 1.6; }
+@media (max-width: 600px) { header { padding: 20px 24px; } main { margin-top: 36px; } }
 
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-}
-
-/* glowing layer */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-
-    background: radial-gradient(circle at center, rgba(255, 105, 180, 0.5), transparent 70%);
-    filter: blur(120px);
-
-    animation: pinkGlow 4s ease-in-out infinite alternate;
-}
-
-@keyframes pinkGlow {
-    0% {
-        opacity: 0.4;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0.9;
-        transform: scale(1.2);
-    }
-}
-
-h1 {
-    font-size: 4rem;
-
-    background: linear-gradient(
-        90deg,
-        red,
-        orange,
-        yellow,
-        green,
-        cyan,
-        blue,
-        violet,
-        red
-    );
-    background-size: 300%;
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px black;
-
-    animation: rainbowMove 5s linear infinite;
-
-    text-shadow:
-        0 0 10px rgba(255, 0, 255, 0.7),
-        0 0 20px rgba(0, 255, 255, 0.7),
-        0 0 40px rgba(255, 255, 0, 0.7);
-}
-
-@keyframes rainbowMove {
-    0% {
-        background-position: 0%;
-    }
-    100% {
-        background-position: 200%;
-    }
-}
+@media (max-width: 600px) { .dropdown ul { left: auto; right: -12px; width: min(440px, calc(100vw - 48px)); } .dropdown li { flex-basis: 140px; } }
