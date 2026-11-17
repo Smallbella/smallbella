@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+    </nav>
+
+    <main>
+        <h1>Form Validation Demo</h1>
+
+        <p>Each form demonstrates a different validation method.</p>
+
+        <!-- Part 1: JavaScript Alert Box -->
+        <section class="form-section">
+            <h2>Part 1: Alert Box</h2>
+            <p>Name cannot be empty.</p>
+
+            <form id="nameForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+
+                <button type="submit">Submit Name</button>
+            </form>
+        </section>
+
+        <!-- Part 2: Error Message Below Field -->
+        <section class="form-section">
+            <h2>Part 2: Error Message</h2>
+            <p>Phone number must contain only digits.</p>
+
+            <form id="phoneForm">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone">
+
+                <span id="phoneError" class="error"></span>
+
+                <button type="submit">Submit Phone</button>
+            </form>
+        </section>
+
+        <!-- Part 3: Built-in Browser Validation -->
+        <section class="form-section">
+            <h2>Part 3: Built-in Validation</h2>
+            <p>Enter the current year.</p>
+
+            <form id="yearForm">
+                <label for="year">Current Year:</label>
+                <input type="number" id="year" required>
+
+                <button type="submit">Submit Year</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Part 1: Alert Box
+        document.getElementById("nameForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const name = document.getElementById("name").value.trim();
+
+                if (name === "") {
+                    alert("Name cannot be empty.");
+                } else {
+                    alert("Name submitted successfully!");
+                }
+            });
+
+        // Part 2: Error Message
+        document.getElementById("phoneForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const phone = document.getElementById("phone").value.trim();
+                const phoneError = document.getElementById("phoneError");
+
+                if (!/^[0-9]+$/.test(phone)) {
+                    phoneError.textContent =
+                        "Invalid phone number. Please enter numbers only.";
+                } else {
+                    phoneError.textContent = "";
+                    alert("Phone number submitted successfully!");
+                }
+            });
+
+        // Part 3: Built-in Browser Validation
+        const year = document.getElementById("year");
+        const currentYear = new Date().getFullYear();
+
+        year.min = currentYear;
+        year.max = currentYear;
+
+        document.getElementById("yearForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                alert("Year submitted successfully!");
+            });
+    </script>
+
+</body>
+</html>
